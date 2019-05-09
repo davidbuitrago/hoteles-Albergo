@@ -1,0 +1,55 @@
+public class Login extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        TextView registro=(TextView)findViewById(R.id.registrarLogin);
+        Button botonLogin=(Button)findViewById(R.id.Botoniniciar);
+        final EditText usert=(EditText)findViewById(R.id.Usuariologin);
+        final EditText passwordt=(EditText)findViewById(R.id.Clavelogin);
+        registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registro = new Intent(Login.this ,Registrar.class);
+                Login.this.startActivity(registro);
+                finish();
+            }
+        });
+        botonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String username=usert.getText().toString();
+                final String password=passwordt.getText().toString();
+                Response.Listener<String> Respuesta=new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonrespuesta =new JSONObject(response);
+                            boolean ok= jsonrespuesta.getBoolean("success");
+                            if (ok==true){
+                                String nombre=jsonrespuesta.getString("name");
+                                Intent menu= new Intent(Login.this,Menu.class);
+                                Login.this.startActivity(menu);
+                                Login.this.finish();
+
+                            }else{
+                                AlertDialog.Builder alerta= new AlertDialog.Builder(Login.this);
+                                alerta.setMessage("Fallo en el Login").setNegativeButton("Reintentar",null).create().show();
+                            }
+
+                        }catch (JSONException e){
+                            e.getMessage();
+                        }
+                    }
+                };
+                Loginrequest a= new Loginrequest(username,password,Respuesta);
+                RequestQueue cola= Volley.newRequestQueue(Login.this);
+                cola.add(a);
+
+            }
+        });
+
+
+}
+}

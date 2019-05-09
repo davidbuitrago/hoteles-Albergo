@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Menu">
+
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:background="@android:color/background_light"
+       >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="238dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/hoteles1" />
+
+        <Button
+            android:id="@+id/btn_localizacion1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_background"
+            android:text="@string/localizacion1" />
+
+        <Button
+            android:id="@+id/btn_localizacion2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/localizacion2"
+            android:background="@drawable/button_background"/>
+
+        <Button
+            android:id="@+id/btn_localizacion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/localizacion3"
+            android:background="@drawable/button_background"/>
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

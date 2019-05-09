@@ -1,0 +1,15 @@
+public class Loginrequest extends StringRequest {
+    private static final String ruta="http://basedatoshotel.000webhostapp.com/Login.php";
+    private Map<String,String> params;
+    public Loginrequest(String username, String password, Response.Listener<String> listener){
+        super(Method.POST,ruta,listener,null);
+        params=new HashMap<>();
+        params.put("username",username+"");
+        params.put("password",password+"");
+    }
+
+    @Override
+    protected Map<String, String> getParams() {
+        return params;
+    }
+}

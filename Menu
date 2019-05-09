@@ -1,0 +1,39 @@
+public class Menu extends AppCompatActivity {
+
+    Button btnlocalizacion1,btn_localizacion2,btn_localizacion3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
+
+        btnlocalizacion1 = (Button) findViewById(R.id.btn_localizacion1);
+
+        btnlocalizacion1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),localizacion1.class);
+                startActivity(intent);
+            }
+
+
+        });
+        btn_localizacion2 = (Button) findViewById(R.id.btn_localizacion2);
+        btn_localizacion2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),localizacion2.class);
+                startActivity(intent);
+
+    }
+});
+        btn_localizacion3 = (Button) findViewById(R.id.btn_localizacion3);
+        btn_localizacion3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),localizacion3.class);
+                startActivity(intent);
+    }
+});
+    }
+}

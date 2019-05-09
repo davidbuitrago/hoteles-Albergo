@@ -1,0 +1,16 @@
+public class RegisterRequest extends StringRequest {
+    private static final String ruta="http://basedatoshotel.000webhostapp.com/Register.php";
+    private Map<String,String> params;
+     public RegisterRequest(String name, String username, String password, Response.Listener<String> listener){
+        super(Method.POST,ruta,listener,null);
+        params=new HashMap<>();
+        params.put("name",name+"");
+        params.put("username",username+"");
+        params.put("password",password+"");
+    }
+
+    @Override
+    protected Map<String, String> getParams() {
+        return params;
+    }
+}
